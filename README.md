@@ -1,24 +1,11 @@
-# README
+Please take clone using below command
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`git clone https://github.com/karnveer1994/booking_system_api.git`
 
-Things you may want to cover:
+update `config/database.yml` with username and password of postgresql db.
 
-* Ruby version
+Run Command
+`rails db:create`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run Command
+`rails db:migrate`
