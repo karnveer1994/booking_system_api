@@ -58,7 +58,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def validate_user_role
+  def validate_user_access
     if current_user.role == "Customer"
       render json: {
         data: {
