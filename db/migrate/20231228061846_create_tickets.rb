@@ -4,7 +4,7 @@ class CreateTickets < ActiveRecord::Migration[7.0]
       t.integer :event_id
       t.integer :price
       t.string :ticket_type
-      t.string :availability
+      t.boolean :availability
       t.timestamps
     end
   end

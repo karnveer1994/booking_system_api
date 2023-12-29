@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+    registrations:  'overrides/registrations'
+  }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :events
+  resources :tickets
+  resources :bookings
 end
