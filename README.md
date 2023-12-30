@@ -6,6 +6,8 @@ update `config/database.yml` with username and password of postgresql db.
 
 ruby version is set to "2.7.6" please install it before running bundle install.
 
+Install Redis and make sure its running on 6379 PORT
+
 Run Command
 `bundle install`
 
@@ -14,6 +16,9 @@ Run Command
 
 Run Command
 `rails db:migrate`
+
+Run Command
+`bundle exec sidekiq`
 
 =======================================================
 Run Command
@@ -70,7 +75,8 @@ You are logged in as Organizer so you will be able to Create, Read, Update and D
 
 ==========================================================
 Create Event
-
+Controller EventsController
+Action     create
 method POST
 URL http://localhost:3000/events.json
 Request Body
@@ -98,6 +104,8 @@ Response
 method GET
 Get Specific event
 
+Controller EventsController
+Action     show
 URL http://localhost:3000/events/1.json
 
 Response Body
@@ -114,6 +122,8 @@ Response Body
 }
 ==========================================================
 method PUT
+Controller EventsController
+Action     update
 Update Specific event
 URL http://localhost:3000/events/1.json
 
@@ -127,6 +137,8 @@ Response Body
   "message": "Event Updated Successfully"
 }
 ==========================================================
+Controller EventsController
+Action     index
 method GET
 Get all Events
 URL http://localhost:3000/events.json
@@ -159,6 +171,8 @@ Response Body
 ==========================================================
 Login As Customer
 ==========================================================
+Controller BookingsController
+Action     index
 Get All Bookings
 method GET
 URL http://localhost:3000/bookings.json
@@ -182,6 +196,8 @@ Response Body
   }
 ]
 =======================================================
+Controller BookingsController
+Action     create
 Create Booking
 method POST
 URL http://localhost:3000/bookings.json
@@ -189,7 +205,8 @@ URL http://localhost:3000/bookings.json
 Request Body
 
 {
-  "ticket_id": 2
+  "ticket_id": 2,
+  "quantity": 3
 }
 
 Response Body
@@ -198,11 +215,15 @@ Response Body
   "id": 3,
   "ticket_id": 2,
   "user_id": 2,
+  "total_price": 300,
+  "quantity: 3,
   "created_at": "2023-12-29T04:30:46.795Z",
   "updated_at": "2023-12-29T04:30:46.795Z"
 }
 
 =======================================================
+Controller BookingsController
+Action     show
 method GET
 Get Specific Booking
 URL http://localhost:3000/bookings/1.json
@@ -212,6 +233,8 @@ Response Body
 {
   "id": 1,
   "ticket_id": 1,
+  "total_price": 300,
+  "quantity: 3,
   "user_id": 2,
   "created_at": "2023-12-29T04:13:41.510Z",
   "updated_at": "2023-12-29T04:13:41.510Z"
@@ -219,3 +242,15 @@ Response Body
 
 =======================================================
 
+Autonomy and Time Management
+
+Project Initialization: 10 mins
+Database Design: 1 hour
+User Authentication: 1 hour 30 mins (Token based authentication using devise token auth)
+Efficient and Scalable APIs: 2 hours
+Asynchronous Tasks via Sidekiq: 30 mins
+README and Documentation: 1 hour
+
+Total Estimated 6 hours 10 mins
+
+=======================================================

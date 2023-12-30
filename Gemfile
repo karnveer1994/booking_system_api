@@ -16,6 +16,8 @@ gem 'devise'
 
 gem 'rack-cors', require: 'rack/cors'
 
+gem 'sidekiq'
+
 gem 'devise_token_auth'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
